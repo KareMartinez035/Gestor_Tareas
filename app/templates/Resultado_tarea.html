@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    <title>Busqueda de tareas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/bootstrap.min.css')}}">
+</head>
+<body>
+    <h1>Resultado de la busqueda "{{busqueda}}"</h1>
+    <div class="row">
+        {%for tarea in tareas%}
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0"> Código de tarea:{{tarea['id_Tareas']}}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><strong>Nombre Tarea:</strong>{{tarea['Nombre']}}</p>
+                    <p class="card-text"><strong>Fecha Inicio:</strong>{{tarea['Fecha_Inicio']}}</p>
+                    <p class="card-text"><strong>Fecha Final:</strong>{{tarea['Fecha_final']}}</p>
+                    <p class="card-text"><strong>Estado:</strong>{{tarea['Estado']}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('eliminar_tarea',id_Tareas=tarea['id_Tareas'])}}" class="btn btn-danger">Eliminar</a>
+                    <a href="{{ url_for('editar_tarea',id_Tareas=tarea['id_Tareas'])}}" class="btn btn-primary">Actualizar</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+}
+.inic{
+    padding-top: 10px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    margin-top: 0;
+    background-color: blueviolet;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+body{
+    position: relative;
+}
+.nav{
+    background-color: rgb(214, 195, 231);
+    width: 100%;
+    height: 20px;
+    padding: 20px;
+}
+ul{
+    position: relative;
+}
+li{
+    list-style: none;
+    display: inline;
+}
+a{
+    text-decoration: none;
+    color:rgb(68, 36, 94);
+    font-size: 20px;
+    margin: 20px;
+    margin-left: 3%;
+}
+h1{
+    text-align: center;
+}
+.Bien{
+    color:rgb(113, 113, 175);
+}
+.container{
+    background-color: rgb(214, 195, 231);
+    border-radius: 10px;
+    margin-top: 15%;
+    margin-left: 35%;
+    position: relative;
+    height: 250px;
+    width: 300px;
+    padding-bottom: 20px;
+}
+form, label, .recup{
+    background-color: rgb(214, 195, 231);
+}
+label, input, select, .recup{
+    display: block;
+    margin-left: 60px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.Acept{
+    margin-top: 15px;
+    margin-left: 38%;
+    background-color: rgb(173, 100, 241);
+    border-radius: 5px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}

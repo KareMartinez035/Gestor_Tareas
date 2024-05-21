@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    <title>Registro de tareas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/bootstrap.min.css')}}">
+</head>
+<body>
+    
+    <nav>
+        <ul> 
+            <strong>
+                {%if Rol=='Administrador'%}
+                <li><a href="/RegistroUsuario">Registar Usuario</a></li>
+                <li><a href="/MostrarUsuario">Ver Usuarios</a></li>
+                <li><a href="/RegistroTareas">Registrar Tarea</a></li>
+                <li><a href="/MostrarTareas">Mostrar Tareas</a></li>
+                <li><a href="/salir">Cerrar Sesión</a></li>
+                {%else %}
+                <li><a href="/RegistroTareas">Registrar Tarea</a></li>
+                <li><a href="/MostrarTareas">Mostrar Tareas</a></li>
+                <li><a href="/salir">Cerrar Sesión</a></li>
+                {%endif%}
+            </strong>
+        </ul>
+    </nav>
+    <main>
+
+    <div class="container">
+        <h1>Registro de Tareas</h1>
+        <br>
+        <form method="post" action="/RegistroTareas">
+            <label>Nombre de la tarea</label>
+            <input type="text" name="Nombre" required>
+
+            <label>Inicio de la tarea</label>
+            <input type="datetime-local" name="Fecha_Inicio" required>
+
+            <label>Fin de la tarea</label>
+            <input type="datetime-local" name="Fecha_final" required>
+
+            <select name="Estado">Estado:
+                <option value="asignado">Asignado</option>
+                <option value="por asignar">Por asignar</option>
+                <option value="terminado">Terminado</option>
+            </select>
+            <label>usuario</label>
+            <input type="text" name="usuario" required>
+
+            <button type="submit" class="Acept">Registrar Tarea</button>
+        </form>
+    </div>
+    </main> 
+</body>
+</html>

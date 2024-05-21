@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    <title>Registro de Usuario</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/bootstrap.min.css')}}">
+</head>
+<body>
+    <nav>
+        <strong>
+            <li><a href="/RegistroUsuario">Registar Usuario</a></li>
+            <li><a href="/MostrarUsuario">Ver Usuarios</a></li>
+            <li><a href="/RegistroTareas">Registrar Tarea</a></li>
+            <li><a href="/MostrarTareas">Mostrar Tareas</a></li>
+            <li><a href="/salir">Cerrar Sesión</a></li>
+        </strong>
+    </nav>
+    <main>
+
+    <div class="container">
+    <h1>Registro de usuarios</h1>
+    <form method="post" action="/RegistroUsuario">
+
+        <label>Nombres</label>
+        <input type="text" name="Nombre_usuario" required>
+
+        <label>Apellidos</label>
+        <input type="text" name="Apellidos_usuario" required>
+
+        <label>Genero</label>
+        <select name="Genero" id="Genero">
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+        </select>
+        <label>Email</label>
+        <input type="email" name="Email_usuario" required>
+
+        <label>Nickname</label>
+        <input type="text" name="Usuario_name" required>
+
+        <label>Contraseña</label>
+        <input type="password" name="Contraseña_Usuario" required>
+
+        <label>Rol</label>
+        <select name="Rol" id="Rol">
+            <option value="Administrador">Administrador</option>
+            <option value="Usuario">Usuario</option>
+        </select>
+
+        <button type="submit" class="Acept">Registrar Usuario</button>
+    </form>
+</div>
+</main>
+
+
+</body>
+</html>

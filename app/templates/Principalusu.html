@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    <title>Usuario</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/bootstrap.min.css')}}">
+</head>
+<body>
+    <nav>
+        <ul> 
+            <strong>
+                <li><a href="/RegistroTareas">Registrar Tarea</a></li>
+                <li><a href="/MostrarTareas">Mostrar Tareas</a></li>
+                <li><a href="/salir">Cerrar Sesión</a></li>
+            </strong>
+        </ul>
+    </nav>
+    <main>
+        <h1 class="Bien">
+        {% set mostrar_bienvenida = True %}
+            {% if request.path != '/' %}
+                {% set mostrar_bienvenida = False %}
+            {% endif %}
+            <br><br>
+        {% if Genero == 'Masculino' %}
+            Bienvenido,
+        {% else %}
+            Bienvenida,
+        {% endif %}
+         {{ nombre_usuario }} {{ apellido_usuario }}</h1>
+         {% set mostrar_bienvenida= False %}
+         
+        
+         {% if mostrar_tareasAd %}
+         <center>
+             <br><br>
+         <h2> Tareas Registradas</h2>
+         <br>
+         </center>
+         <table>
+             <thead>
+                 <th>Id</th>
+                 <th>Nombre</th>
+                 <th>Fecha Inicio</th>
+                 <th>Fecha Final</th>
+                 <th>Estado</th>
+                 <th>Usuario</th>
+             </thead>
+             <tbody>
+                 {% for tarea in tareas %}
+                 <tr>
+                     <td>{{tarea[0]}}</td>
+                     <td>{{tarea[1]}}</td>
+                     <td>{{tarea[2]}}</td>
+                     <td>{{tarea[3]}}</td>
+                     <td>{{tarea[4]}}</td>
+                     <td>{{tarea[5]}}</td>
+                     <td class="Acciones">
+                         <a href="{{ url_for('eliminar_tarea',id_Tareas=tarea[0]) }}">Eliminar</a>
+                         <a href="{{ url_for('editar_tarea',id_Tareas=tarea[0]) }}">Editar </a>
+                     </td>
+ 
+                 </tr>
+                 {% endfor %}
+             </tbody>
+         </table>
+         {% endif %}
+    </main>
+</body>
+</html>
